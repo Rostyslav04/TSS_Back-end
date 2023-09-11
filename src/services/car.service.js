@@ -1,6 +1,6 @@
+
 class CarService {
-  getCar() {
-    return { message: 'thisCars' };
+  async getCar() {
   }
 }
 

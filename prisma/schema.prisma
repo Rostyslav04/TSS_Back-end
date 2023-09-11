@@ -1,0 +1,75 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String      @id @default(uuid()) // Use auto() for auto-generated UUIDs
+  email     String      @unique
+  phone     String      @unique
+  password  String
+  firstName String
+  lastName  String
+  surName   String
+  age       Int // Change to an appropriate data type for age
+  confirm   Boolean
+  UserToCar UserToCar[]
+  Order     Order[]
+}
+
+model UserToCar {
+  id     String @id @default(uuid()) // Use auto() for auto-generated UUIDs
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  carId  String
+  car    Car    @relation(fields: [carId], references: [id])
+}
+
+model Car {
+  id            String      @id @default(uuid()) // Use auto() for auto-generated UUIDs
+  brand         String
+  model         String
+  year          DateTime
+  registerPlate String      @unique
+  VIN           String      @unique
+  UserToCar     UserToCar[]
+  Order         Order[]
+}
+
+model Order {
+  id              String            @id @default(uuid()) // Use auto() for auto-generated UUIDs
+  createData      DateTime
+  workList        String
+  user            User              @relation(fields: [userId], references: [id])
+  userId          String
+  car             Car               @relation(fields: [carId], references: [id])
+  carId           String
+  OrderToPersonal OrderToPersonal[]
+}
+
+model OrderToPersonal {
+  id         String   @id @default(uuid()) // Use auto() for auto-generated UUIDs
+  personal   Personal @relation(fields: [personalId], references: [id])
+  personalId String
+  order      Order    @relation(fields: [orderId], references: [id])
+  orderId    String
+  workList   String
+}
+
+model Personal {
+  id              String            @id @default(uuid()) // Use auto() for auto-generated UUIDs
+  email           String            @unique
+  phone           String            @unique
+  password        String
+  role            String
+  firstName       String
+  lastName        String
+  surName         String
+  age             Int // Change to an appropriate data type for age
+  confirm         Boolean
+  OrderToPersonal OrderToPersonal[]
+}
