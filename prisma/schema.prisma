@@ -28,12 +28,12 @@ model UserToCar {
   carId  String
   car    Car    @relation(fields: [carId], references: [id])
 }
-
+ 
 model Car {
   id            String      @id @default(uuid()) 
   brand         String
   model         String
-  year          DateTime
+  year          String
   registerPlate String      @unique
   VIN           String      @unique
   UserToCar     UserToCar[]

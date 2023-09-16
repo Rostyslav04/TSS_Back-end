@@ -23,6 +23,7 @@ class CarService {
     const car = await prisma.car.create({
       data: { year, brand, model, registerPlate, VIN },
     });
+    console.log(car);
     return car;
   }
 

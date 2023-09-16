@@ -4,7 +4,8 @@ class OrderToPersonalController {
 
   async getById(req, res, next) {
     try {
-      const result = await orderToPersonalService.getById();
+      const { carId, userId } = req.body;
+      const result = await orderToPersonalService.getById({ carId, userId });
       res.status(200).json(result);
     } catch (error) {
       next(error);
@@ -13,7 +14,8 @@ class OrderToPersonalController {
 
   async create(req, res, next) {
     try {
-      const result = await orderToPersonalService.create();
+      const { carId, userId, createData, workList } = req.body;
+      const result = await orderToPersonalService.create({ carId, userId, createData, workList });
       res.status(200).json(result);
     } catch (error) {
       next(error);
@@ -22,7 +24,8 @@ class OrderToPersonalController {
 
   async delete(req, res, next) {
     try {
-      const result = await orderToPersonalService.delete();
+      const { carId, userId } = req.body;
+      const result = await orderToPersonalService.delete({ carId, userId });
       res.status(200).json(result);
     } catch (error) {
       next(error);

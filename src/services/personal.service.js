@@ -1,8 +1,8 @@
 import { prisma } from '../index.js';
 
 class PersonalService {
-  async getById({ personalId }) {
-    const personal = await prisma.personal.findFirst({ where: { personalId } });
+  async getById({ id }) {
+    const personal = await prisma.personal.findFirst({ where: { id } });
     if (!personal) throw new Error();
     return personal;
   }
@@ -14,8 +14,8 @@ class PersonalService {
     return personal;
   }
 
-  async delete({ personalId }) {
-    const personal = await prisma.personal.delete({ where: { personalId } });
+  async delete({ id }) {
+    const personal = await prisma.personal.delete({ where: { id } });
     return personal;
   }
 }

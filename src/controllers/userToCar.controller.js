@@ -4,7 +4,8 @@ class UserToCarController {
 
   async getById(req, res, next) {
     try {
-      const result = await userToCarService.getById();
+      const { userId, carId } = req.body;
+      const result = await userToCarService.getById({ userId, carId });
       res.status(200).json(result);
     } catch (error) {
       next(error);
@@ -13,7 +14,8 @@ class UserToCarController {
 
   async create(req, res, next) {
     try {
-      const result = await userToCarService.create();
+      const { id } = req.body;
+      const result = await userToCarService.getById({ id });
       res.status(200).json(result);
     } catch (error) {
       next(error);
@@ -22,7 +24,8 @@ class UserToCarController {
 
   async delete(req, res, next) {
     try {
-      const result = await userToCarService.delete();
+      const { userId, carId } = req.body;
+      const result = await userToCarService.getById({ userId, carId });
       res.status(200).json(result);
     } catch (error) {
       next(error);

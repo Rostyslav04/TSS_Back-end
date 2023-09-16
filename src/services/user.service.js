@@ -1,8 +1,8 @@
 import { prisma } from '../index.js';
 
 class UserService {
-  async getById({ userId }) {
-    const user = await prisma.user.findFirst({ where: { userId } });
+  async getById({ id }) {
+    const user = await prisma.user.findFirst({ where: { id } });
     if (!user) throw new Error();
     return user;
   }
@@ -14,8 +14,13 @@ class UserService {
     return user;
   }
 
-  async delete({ userId }) {
-    const user = await prisma.user.delete({ where: { userId } });
+  async delete({ id }) {
+    const user = await prisma.user.delete({ where: { id } });
+    return user;
+  }
+  async getAll({ id }) {
+    const user = await prisma.user.findMany({ where: { id } });
+    if (!user) throw new Error();
     return user;
   }
 }

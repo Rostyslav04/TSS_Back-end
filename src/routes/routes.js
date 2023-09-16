@@ -26,6 +26,7 @@ carsRoutes.get('/car/delete', carController.delete);
 usersRoutes.get('/user/getById', userController.getById);
 usersRoutes.get('/user/create', userController.create);
 usersRoutes.get('/user/delete', userController.delete);
+usersRoutes.get('/user/getAll', userController.getAll);
 
 // ----------------------------------------------------------------------
 

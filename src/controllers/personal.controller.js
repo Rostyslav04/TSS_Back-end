@@ -1,10 +1,10 @@
 import { personalService } from '../services/personal.service.js';
 
 class PersonalController {
-
   async getById(req, res, next) {
     try {
-      const result = await personalService.getById();
+      const { id } = req.body;
+      const result = await personalService.getById({ id });
       res.status(200).json(result);
     } catch (error) {
       next(error);
@@ -13,7 +13,18 @@ class PersonalController {
 
   async create(req, res, next) {
     try {
-      const result = await personalService.create();
+      const { firstName, lastName, surName, age, email, phone, password, role, confirm } = req.body;
+      const result = await personalService.create({
+        firstName,
+        lastName,
+        surName,
+        age,
+        email,
+        phone,
+        password,
+        role,
+        confirm,
+      });
       res.status(200).json(result);
     } catch (error) {
       next(error);
@@ -22,7 +33,8 @@ class PersonalController {
 
   async delete(req, res, next) {
     try {
-      const result = await personalService.delete();
+      const { id } = req.body;
+      const result = await personalService.delete({ id });
       res.status(200).json(result);
     } catch (error) {
       next(error);
