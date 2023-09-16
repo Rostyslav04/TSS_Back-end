@@ -1,8 +1,9 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
 import cors from 'cors';
-
 const app = express();
 
 // Routes
@@ -36,3 +37,5 @@ allMiddleware.forEach((elm) => app.use(elm));
 
 // start server
 app.listen(3000, () => (console.log('server start')))
+
+export {prisma}
