@@ -15,7 +15,7 @@ class JWT {
     return token;
   }
 
-  decrypt() {
+  decrypt(token) {
     return jsonwebtoken.verify(token, this.key);
   }
 }
