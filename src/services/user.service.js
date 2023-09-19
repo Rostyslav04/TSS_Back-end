@@ -7,6 +7,12 @@ class UserService {
     return user;
   }
 
+  async getByPhone({ phone }) {
+    const user = await prisma.user.findFirst({ where: { phone } });
+    if (!user) throw new Error();
+    return user;
+  }
+
   async create({ firstName, lastName, surName, age, email, phone, password, confirm }) {
     const user = await prisma.user.create({
       data: { firstName, lastName, surName, age, email, phone, password, confirm },

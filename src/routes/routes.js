@@ -6,8 +6,9 @@ import { userToCarController } from '../controllers/userToCar.controller.js';
 import { orderController } from '../controllers/order.controller.js';
 import { orderToPersonalController } from '../controllers/orderToPersonal.controller.js';
 
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+import { authMiddleware } from '../middlewares/auth.middleware.js';
+import { authController } from '../controllers/auth.controller.js';
+const middleware = [authMiddleware]
 
 const carsRoutes = new Router();
 const usersRoutes = new Router();
@@ -16,12 +17,14 @@ const userToCarRoutes = new Router();
 const orderRoutes = new Router();
 const orderToPersonalRoutes = new Router();
 
-carsRoutes.get('/car/getAll', carController.getAll);
+carsRoutes.get('/car/getAll', authMiddleware, carController.getAll);
 carsRoutes.get('/car/getById', carController.getById);
 carsRoutes.get('/car/create', carController.create);
 carsRoutes.get('/car/delete', carController.delete);
 
 // ----------------------------------------------------------------------
+
+usersRoutes.get('/user/login', authController.login);
 
 usersRoutes.get('/user/getById', userController.getById);
 usersRoutes.get('/user/create', userController.create);

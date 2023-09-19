@@ -35,6 +35,6 @@ const allMiddleware = [
 allMiddleware.forEach((elm) => app.use(elm));
 
 // start server
-app.listen(3000, () => (console.log('server start')))
+app.listen(3000, () => (console.log('server start...')))
 
 export {prisma}
