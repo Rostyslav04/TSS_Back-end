@@ -7,8 +7,8 @@ class AuthController {
       const { phone, password } = req.body;
       const userInDB = await userService.getByPhone({ phone });
       if (password !== userInDB.password) throw new Error();
-      const token = jwt.create(userInDB.id)
-      res.status(200).json({token});
+      const token = jwt.create(userInDB.id);
+      res.status(200).json({ token });
     } catch (error) {
       next(error);
     }
@@ -16,10 +16,19 @@ class AuthController {
 
   async registration(req, res, next) {
     try {
-      const { firstName, lastName, surName, age, email, phone, password, confirm } = req.body
+      const { firstName, lastName, surName, age, email, phone, password, confirm } = req.body;
       const userInDB = await userService.getByPhone({ phone });
-      if (phone === userInDB.phone) throw new Error()
-      const registerUser = await userService.create({ firstName, lastName, surName, age, email, phone, password, confirm })
+      if (phone === userInDB.phone) throw new Error();
+      const registerUser = await userService.create({
+        firstName,
+        lastName,
+        surName,
+        age,
+        email,
+        phone,
+        password,
+        confirm,
+      });
       res.status(200).json(registerUser);
     } catch (error) {
       next(error);
