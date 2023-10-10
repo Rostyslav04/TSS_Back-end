@@ -13,8 +13,8 @@ class UserController {
 
   async create(req, res, next) {
     try {
-      const { firstName, lastName, surName, age, email, phone, password, confirm } = req.body;
-      const result = await userService.create({ firstName, lastName, surName, age, email, phone, password, confirm });
+      const { firstName, lastName, surName, email, phone, password } = req.body;
+      const result = await userService.create({ firstName, lastName, surName, email, phone, password });
       res.status(200).json(result);
     } catch (error) {
       next(error);

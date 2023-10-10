@@ -23,7 +23,7 @@ CREATE TABLE "Car" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "brand" TEXT NOT NULL,
     "model" TEXT NOT NULL,
-    "year" DATETIME NOT NULL,
+    "year" TEXT NOT NULL,
     "registerPlate" TEXT NOT NULL,
     "VIN" TEXT NOT NULL
 );
@@ -58,10 +58,17 @@ CREATE TABLE "Personal" (
     "role" TEXT NOT NULL,
     "firstName" TEXT NOT NULL,
     "lastName" TEXT NOT NULL,
-    "surName" TEXT NOT NULL,
-    "age" INTEGER NOT NULL,
-    "confirm" BOOLEAN NOT NULL
+    "surName" TEXT NOT NULL
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+CREATE UNIQUE INDEX "User_phone_key" ON "User"("phone");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Car_registerPlate_key" ON "Car"("registerPlate");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Car_VIN_key" ON "Car"("VIN");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Personal_phone_key" ON "Personal"("phone");

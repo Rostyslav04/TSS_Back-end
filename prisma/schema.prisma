@@ -15,8 +15,6 @@ model User {
   firstName String
   lastName  String
   surName   String
-  age       Int
-  confirm   Boolean
   UserToCar UserToCar[]
   Order     Order[]
 }
@@ -69,7 +67,5 @@ model Personal {
   firstName       String
   lastName        String
   surName         String
-  age             Int
-  confirm         Boolean
   OrderToPersonal OrderToPersonal[]
 }

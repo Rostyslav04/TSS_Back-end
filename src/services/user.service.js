@@ -13,9 +13,9 @@ class UserService {
     return user;
   }
 
-  async create({ firstName, lastName, surName, age, email, phone, password, confirm }) {
+  async create({ firstName, lastName, surName, email, phone, password }) {
     const user = await prisma.user.create({
-      data: { firstName, lastName, surName, age, email, phone, password, confirm },
+      data: { firstName, lastName, surName, email, phone, password },
     });
     return user;
   }

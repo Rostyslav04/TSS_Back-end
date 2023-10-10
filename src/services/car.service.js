@@ -1,12 +1,5 @@
 import { prisma } from '../index.js';
 
-/**
- * getall
- * getby-id
- * create
- * delete
- */
-
 class CarService {
   async getAll({ userId }) {
     const car = await prisma.car.findMany({ where: { userId } });
@@ -23,7 +16,6 @@ class CarService {
     const car = await prisma.car.create({
       data: { year, brand, model, registerPlate, VIN },
     });
-    console.log(car);
     return car;
   }
 

@@ -17,25 +17,26 @@ const userToCarRoutes = new Router();
 const orderRoutes = new Router();
 const orderToPersonalRoutes = new Router();
 
-carsRoutes.get('/car/getAll', authMiddleware, carController.getAll);
+carsRoutes.get('/car/getAll', carController.getAll);
 carsRoutes.get('/car/getById', carController.getById);
-carsRoutes.get('/car/create', carController.create);
-carsRoutes.get('/car/delete', carController.delete);
+carsRoutes.post('/car/create', carController.create);
+carsRoutes.post('/car/delete', carController.delete);
 
 // ----------------------------------------------------------------------
 
-usersRoutes.get('/user/login', authController.login);
+usersRoutes.post('/user/login', authController.login);
 
 usersRoutes.get('/user/getById', userController.getById);
-usersRoutes.get('/user/create', userController.create);
-usersRoutes.get('/user/delete', userController.delete);
+usersRoutes.post('/user/create', userController.create);
+usersRoutes.post('/user/delete', userController.delete);
 usersRoutes.get('/user/getAll', userController.getAll);
 
 // ----------------------------------------------------------------------
 
+personalRoutes.get('/personal/getAll', personalController.getAll);
 personalRoutes.get('/personal/getById', personalController.getById);
-personalRoutes.get('/personal/create', personalController.create);
-personalRoutes.get('/personal/delete', personalController.delete);
+personalRoutes.post('/personal/create', personalController.create);
+personalRoutes.post('/personal/delete', personalController.delete);
 
 // ----------------------------------------------------------------------
 
@@ -46,8 +47,9 @@ userToCarRoutes.get('/userToCar/delete', userToCarController.delete);
 // ----------------------------------------------------------------------
 
 orderRoutes.get('/order/getById', orderController.getById);
-orderRoutes.get('/order/create', orderController.create);
-orderRoutes.get('/order/delete', orderController.delete);
+orderRoutes.get('/order/getAll', orderController.getAll);
+orderRoutes.post('/order/create', orderController.create);
+orderRoutes.post('/order/delete', orderController.delete);
 
 // ----------------------------------------------------------------------
 

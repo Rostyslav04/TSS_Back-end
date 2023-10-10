@@ -18,6 +18,12 @@ class OrderService {
     const order = await prisma.order.delete({ where: { carId, userId } });
     return order;
   }
+  
+  async getAll({ id }) {
+    const order = await prisma.order.findMany({ where: { id } });
+    if (!order) throw new Error();
+    return order;
+  }
 }
 
 export const orderService = new OrderService();
