@@ -46,16 +46,6 @@ model Order {
   userId          String
   car             Car               @relation(fields: [carId], references: [id])
   carId           String
-  OrderToPersonal OrderToPersonal[]
-}
-
-model OrderToPersonal {
-  id         String   @id @default(uuid())
-  personal   Personal @relation(fields: [personalId], references: [id])
-  personalId String
-  order      Order    @relation(fields: [orderId], references: [id])
-  orderId    String
-  workList   String
 }
 
 model Personal {
@@ -67,5 +57,4 @@ model Personal {
   firstName       String
   lastName        String
   surName         String
-  OrderToPersonal OrderToPersonal[]
 }

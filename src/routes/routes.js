@@ -4,7 +4,6 @@ import { userController } from '../controllers/user.controller.js';
 import { personalController } from '../controllers/personal.controller.js';
 import { userToCarController } from '../controllers/userToCar.controller.js';
 import { orderController } from '../controllers/order.controller.js';
-import { orderToPersonalController } from '../controllers/orderToPersonal.controller.js';
 
 import { authMiddleware } from '../middlewares/auth.middleware.js';
 import { authController } from '../controllers/auth.controller.js';
@@ -15,7 +14,6 @@ const usersRoutes = new Router();
 const personalRoutes = new Router();
 const userToCarRoutes = new Router();
 const orderRoutes = new Router();
-const orderToPersonalRoutes = new Router();
 
 carsRoutes.get('/car/getAll', carController.getAll);
 carsRoutes.get('/car/getById', carController.getById);
@@ -53,13 +51,8 @@ orderRoutes.post('/order/delete', orderController.delete);
 
 // ----------------------------------------------------------------------
 
-orderToPersonalRoutes.get('/orderToPersonal/getById', orderToPersonalController.getById);
-orderToPersonalRoutes.get('/orderToPersonal/create', orderToPersonalController.create);
-orderToPersonalRoutes.get('/orderToPersonal/delete', orderToPersonalController.delete);
-
 export { carsRoutes };
 export { usersRoutes };
 export { personalRoutes };
 export { userToCarRoutes };
 export { orderRoutes };
-export { orderToPersonalRoutes };

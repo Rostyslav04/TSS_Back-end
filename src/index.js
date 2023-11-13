@@ -7,7 +7,7 @@ import cors from 'cors';
 const app = express();
 
 // Routes
-import { carsRoutes, orderRoutes, orderToPersonalRoutes, personalRoutes, usersRoutes, userToCarRoutes } from './routes/routes.js';
+import { carsRoutes, orderRoutes, personalRoutes, usersRoutes, userToCarRoutes } from './routes/routes.js';
 
 // Middleware
 import { errorMiddleware } from './middlewares/error.middleware.js';
@@ -22,7 +22,7 @@ const allMiddleware = [
   express.urlencoded({ extended: true }),
 
   //
-  carsRoutes, usersRoutes, personalRoutes, userToCarRoutes, orderRoutes, orderToPersonalRoutes,
+  carsRoutes, usersRoutes, personalRoutes, userToCarRoutes, orderRoutes,
   //
   errorMiddleware, // error middleware
 ];

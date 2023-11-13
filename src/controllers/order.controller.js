@@ -23,8 +23,8 @@ class OrderController {
 
   async delete(req, res, next) {
     try {
-      const { carId, userId } = req.body;
-      const result = await orderService.delete({ userId, carId });
+      const { id } = req.body;
+      const result = await orderService.delete({ id });
       res.status(200).json(result);
     } catch (error) {
       next(error);

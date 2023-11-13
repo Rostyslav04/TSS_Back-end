@@ -14,8 +14,8 @@ class OrderService {
     return order;
   }
 
-  async delete({ carId, userId }) {
-    const order = await prisma.order.delete({ where: { carId, userId } });
+  async delete({ id }) {
+    const order = await prisma.order.delete({ where: { id } });
     return order;
   }
   
