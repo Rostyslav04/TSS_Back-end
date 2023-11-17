@@ -13,8 +13,8 @@ class UserController {
 
   async create(req, res, next) {
     try {
-      const { firstName, lastName, surName, email, phone, password } = req.body;
-      const result = await userService.create({ firstName, lastName, surName, email, phone, password });
+      const { firstName, lastName, surName, email, phone } = req.body;
+      const result = await userService.create({ firstName, lastName, surName, email, phone });
       res.status(200).json(result);
     } catch (error) {
       next(error);
@@ -25,7 +25,6 @@ class UserController {
     try {
       const { id } = req.body;
       const result = await userService.delete({ id });
-      console.log('deleted');
       res.status(200).json(result);
     } catch (error) {
       next(error);

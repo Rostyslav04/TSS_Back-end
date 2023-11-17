@@ -3,7 +3,6 @@ CREATE TABLE "User" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "email" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
     "firstName" TEXT NOT NULL,
     "lastName" TEXT NOT NULL,
     "surName" TEXT NOT NULL
@@ -37,16 +36,6 @@ CREATE TABLE "Order" (
     "carId" TEXT NOT NULL,
     CONSTRAINT "Order_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Order_carId_fkey" FOREIGN KEY ("carId") REFERENCES "Car" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
-);
-
--- CreateTable
-CREATE TABLE "OrderToPersonal" (
-    "id" TEXT NOT NULL PRIMARY KEY,
-    "personalId" TEXT NOT NULL,
-    "orderId" TEXT NOT NULL,
-    "workList" TEXT NOT NULL,
-    CONSTRAINT "OrderToPersonal_personalId_fkey" FOREIGN KEY ("personalId") REFERENCES "Personal" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "OrderToPersonal_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
