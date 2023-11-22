@@ -13,7 +13,7 @@ class CarController {
 
   async getById(req, res, next) {
     try {
-      const { id, userId } = req.body;
+      const { zid, userId } = req.body;
       const result = await carService.getById({ id, userId });
       res.status(200).json(result);
     } catch (error) {

@@ -25,9 +25,9 @@ carsRoutes.post('/car/delete', carController.delete);
 usersRoutes.post('/user/login', authController.login);
 
 usersRoutes.get('/user/getById', userController.getById);
+usersRoutes.get('/user/getAll', userController.getAll);
 usersRoutes.post('/user/create', userController.create);
 usersRoutes.post('/user/delete', userController.delete);
-usersRoutes.get('/user/getAll', userController.getAll);
 
 // ----------------------------------------------------------------------
 
@@ -39,8 +39,9 @@ personalRoutes.post('/personal/delete', personalController.delete);
 // ----------------------------------------------------------------------
 
 userToCarRoutes.get('/userToCar/getById', userToCarController.getById);
-userToCarRoutes.get('/userToCar/create', userToCarController.create);
-userToCarRoutes.get('/userToCar/delete', userToCarController.delete);
+userToCarRoutes.get('/userToCar/getAll', userToCarController.getAll);
+userToCarRoutes.post('/userToCar/create', userToCarController.create);
+userToCarRoutes.post('/userToCar/delete', userToCarController.delete);
 
 // ----------------------------------------------------------------------
 
