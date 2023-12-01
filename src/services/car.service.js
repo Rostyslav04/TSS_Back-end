@@ -6,8 +6,8 @@ class CarService {
     return car;
   }
 
-  async getById({ id, userId }) {
-    const car = await prisma.car.findFirst({ where: { id, userId } });
+  async getById({ id }) {
+    const car = await prisma.car.findFirst({ where: { id } });
     if (!car) throw new Error();
     return car;
   }
@@ -19,8 +19,8 @@ class CarService {
     return car;
   }
 
-  async delete({ id, userId }) {
-    const car = await prisma.car.delete({ where: { id, userId } });
+  async delete({ id }) {
+    const car = await prisma.car.delete({ where: { id } });
     return car;
   }
 }

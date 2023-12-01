@@ -18,8 +18,8 @@ class UserToCarService {
     const userToCar = await prisma.userToCar.delete({ where: { userId, carId } });
     return userToCar;
   }
-  async getAll({ id }) {
-    const userToCar = await prisma.userToCar.findMany({ where: { id } });
+  async getAll({ userId }) {
+    const userToCar = await prisma.userToCar.findMany({ where: { userId } });
     if (!userToCar) throw new Error();
     return userToCar;
   }

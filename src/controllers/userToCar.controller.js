@@ -1,4 +1,5 @@
 import { userToCarService } from '../services/userToCar.service.js';
+import { carService } from '../services/car.service.js';
 
 class UserToCarController {
   async getById(req, res, next) {
@@ -33,9 +34,14 @@ class UserToCarController {
 
   async getAll(req, res, next) {
     try {
-      const { id } = req.body;
-      const result = await userToCarService.getAll({ id });
-      res.status(200).json(result);
+      const { userId } = req.body;
+      const getUserToCarWithDB = await userToCarService.getAll({ userId });
+      const array = [];
+      for (let i = 0; i < getUserToCarWithDB.length; i++) {
+        const result = await carService.getById({id:getUserToCarWithDB[i].carId,})
+        array.push(result)
+      }
+      res.status(200).json(array);
     } catch (error) {
       next(error);
     }

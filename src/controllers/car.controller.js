@@ -13,7 +13,7 @@ class CarController {
 
   async getById(req, res, next) {
     try {
-      const { zid, userId } = req.body;
+      const { id, userId } = req.body;
       const result = await carService.getById({ id, userId });
       res.status(200).json(result);
     } catch (error) {
@@ -33,8 +33,8 @@ class CarController {
 
   async delete(req, res, next) {
     try {
-      const { id, userId } = req.body;
-      const result = await carService.delete({ id, userId });
+      const { id } = req.body;
+      const result = await carService.delete({ id });
       res.status(200).json(result);
     } catch (error) {
       next(error);

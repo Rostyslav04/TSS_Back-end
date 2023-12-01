@@ -39,7 +39,7 @@ personalRoutes.post('/personal/delete', personalController.delete);
 // ----------------------------------------------------------------------
 
 userToCarRoutes.get('/userToCar/getById', userToCarController.getById);
-userToCarRoutes.get('/userToCar/getAll', userToCarController.getAll);
+userToCarRoutes.post('/userToCar/getAll', userToCarController.getAll);
 userToCarRoutes.post('/userToCar/create', userToCarController.create);
 userToCarRoutes.post('/userToCar/delete', userToCarController.delete);
 
