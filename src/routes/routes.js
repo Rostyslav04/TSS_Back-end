@@ -45,7 +45,7 @@ userToCarRoutes.post('/userToCar/delete', userToCarController.delete);
 
 // ----------------------------------------------------------------------
 
-orderRoutes.get('/order/getById', orderController.getById);
+orderRoutes.post('/order/getById', orderController.getById);    
 orderRoutes.get('/order/getAll', orderController.getAll);
 orderRoutes.post('/order/create', orderController.create);
 orderRoutes.post('/order/delete', orderController.delete);

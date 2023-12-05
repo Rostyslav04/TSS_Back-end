@@ -1,8 +1,8 @@
 import { prisma } from '../index.js';
 
 class OrderService {
-  async getById({ carId, userId }) {
-    const order = await prisma.order.findFirst({ where: { carId, userId } });
+  async getById({ carId }) {
+    const order = await prisma.order.findFirst({ where: { carId } });
     if (!order) throw new Error();
     return order;
   }

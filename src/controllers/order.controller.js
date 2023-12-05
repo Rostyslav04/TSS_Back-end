@@ -3,8 +3,8 @@ import { orderService } from '../services/order.service.js';
 class OrderController {
   async getById(req, res, next) {
     try {
-      const { carId, userId } = req.body;
-      const result = await orderService.getById({ userId, carId });
+      const { carId } = req.body;
+      const result = await orderService.getById({ carId });
       res.status(200).json(result);
     } catch (error) {
       next(error);
