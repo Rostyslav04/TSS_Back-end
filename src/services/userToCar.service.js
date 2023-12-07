@@ -14,8 +14,8 @@ class UserToCarService {
     return userToCar;
   }
 
-  async delete({ userId, carId }) {
-    const userToCar = await prisma.userToCar.delete({ where: { userId, carId } });
+  async delete({  carId }) {
+    const userToCar = await prisma.userToCar.delete({ where: { carId } });
     return userToCar;
   }
   async getAll({ userId }) {

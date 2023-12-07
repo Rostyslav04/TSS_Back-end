@@ -24,8 +24,8 @@ class UserToCarController {
 
   async delete(req, res, next) {
     try {
-      const { userId, carId } = req.body;
-      const result = await userToCarService.delete({ userId, carId });
+      const {  carId } = req.body;
+      const result = await userToCarService.delete({  carId });
       res.status(200).json(result);
     } catch (error) {
       next(error);
