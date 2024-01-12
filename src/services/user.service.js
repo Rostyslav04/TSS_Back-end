@@ -18,6 +18,7 @@ class UserService {
     const user = await prisma.user.delete({ where: { id } });
     return user;
   }
+  
   async getAll({ id }) {
     const user = await prisma.user.findMany({ where: { id } });
     if (!user) throw new Error();
